@@ -1,0 +1,64 @@
+.slot-machine {
+  .reels {
+    background-color: transparent;
+
+    ul.reel {
+      display: inline-block;
+      list-style: none;
+      margin-left: -40px;
+      transform-style: preserve-3d;
+
+      &.start {
+        animation: init 300ms ease-out reverse;
+      }
+
+      &.spin {
+        animation: spin 3000ms linear infinite reverse;
+      }
+
+      &.stop {
+        animation: init 1000ms ease-in reverse;
+      }
+
+      li {
+        position: absolute;
+      }
+    }
+  }
+
+  @-moz-keyframes init {
+    from {
+      -moz-transform: rotateX(0);
+    }
+    to {
+      -moz-transform: rotateX(15deg);
+    }
+  }
+
+  @-webkit-keyframes init {
+    from {
+      -webkit-transform: rotateX(0);
+    }
+    to {
+      -webkit-transform: rotateX(15deg);
+    }
+  }
+
+  @-moz-keyframes spin {
+    from {
+      -moz-transform: rotateX(0);
+    }
+    to {
+      -moz-transform: rotateX(360deg);
+    }
+  }
+
+  @-webkit-keyframes spin {
+    from {
+      -webkit-transform: rotateX(0);
+    }
+    to {
+      -webkit-transform: rotateX(360deg);
+    }
+  }
+}

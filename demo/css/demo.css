@@ -1,0 +1,10 @@
+#slot-machine {
+  margin: 10% auto 0 auto;
+  width: 600px;
+}
+
+#play-button {
+  display:block;
+  margin: 200px auto 0 auto;
+  width: 100px;
+}

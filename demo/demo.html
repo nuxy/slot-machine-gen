@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" type="text/css" href="../dist/slot-machine.css" />
+  <link rel="stylesheet" type="text/css" href="css/demo.css" />
+
+  <title>Create an extremely biased, web-based slot machine game | Slot Machine Generator</title>
+</head>
+<body>
+
+<div id="slot-machine" class="slot-machine"></div>
+
+<button id="play-button">Play</button>
+
+<script type="text/javascript" src="../dist/slot-machine.js"></script>
+<script>
+  var machine = document.getElementById('slot-machine');
+  var button  = document.getElementById('play-button');
+
+  var slot = slotMachine(
+    machine,
+    {
+      reels: {
+        reel1: {
+          imageUrl: "../images/reel-strip1.png",
+          items: [
+            {
+              title: 'green',
+              position: 95,
+              weight: 2
+            },
+            {
+              title: 'blue',
+              position: 335,
+              weight: 6
+            },
+            {
+              title: 'purple',
+              position: 560,
+              weight: 3
+            },
+            {
+              title: 'orange',
+              position: 755,
+              weight: 5
+            },
+            {
+              title: 'blue',
+              position: 1020,
+              weight: 6
+            },
+            {
+              title: 'red',
+              position: 1220,
+              weight: 1
+            }
+          ]
+        },
+        reel2: {
+          imageUrl: "../images/reel-strip2.png",
+          items: [
+            {
+              title: 'purple',
+              position: 95,
+              weight: 3
+            },
+            {
+              title: 'blue',
+              position: 300,
+              weight: 6
+            },
+            {
+              title: 'green',
+              position: 520,
+              weight: 2
+            },
+            {
+              title: 'red',
+              position: 760,
+              weight: 1
+            },
+            {
+              title: 'blue',
+              position: 970,
+              weight: 6
+            },
+            {
+              title: 'orange',
+              position: 1225,
+              weight: 5
+            }
+          ]
+        },
+        reel3: {
+          imageUrl: "../images/reel-strip3.png",
+          items: [
+            {
+              title: 'orange',
+              position: 95,
+              weight: 5
+            },
+            {
+              title: 'blue',
+              position: 310,
+              weight: 6
+            },
+            {
+              title: 'blue',
+              position: 555,
+              weight: 6
+            },
+            {
+              title: 'purple',
+              position: 770,
+              weight: 3
+            },
+            {
+              title: 'red',
+              position: 985,
+              weight: 1
+            },
+            {
+              title: 'green',
+              position: 1215,
+              weight: 2
+            }
+          ]
+        }
+      }
+    }
+  );
+
+  button.addEventListener('click', () => slot.play());
+</script>
+
+</body>
+</html>

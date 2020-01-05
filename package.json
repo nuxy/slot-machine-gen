@@ -1,0 +1,43 @@
+{
+  "name": "slot-machine-gen",
+  "version": "0.0.1",
+  "description": "Create an extremely biased, web-based slot machine game.",
+  "main": "src/slot-machine.js",
+  "scripts": {
+    "build": "node_modules/.bin/babel src -s -D -d dist --presets env && npm run sass && npm run minify-css && npm run minify-js",
+    "lint": "node_modules/.bin/eslint --ignore-path .gitignore src",
+    "sass": "node_modules/.bin/node-sass src/slot-machine.scss dist/slot-machine.css",
+    "minify-css": "node_modules/.bin/node-minify --compressor clean-css --input 'dist/slot-machine.css' --output 'dist/slot-machine.min.css'",
+    "minify-js": "node_modules/.bin/node-minify --compressor uglify-js --input 'dist/slot-machine.js' --output 'dist/slot-machine.min.js'",
+    "preinstall": "npm install --ignore-scripts && npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nuxy/slot-machine-gen.git"
+  },
+  "keywords": [
+    "browser",
+    "plugin",
+    "animation",
+    "slot",
+    "games"
+  ],
+  "bugs": {
+    "url": "https://github.com/nuxy/slot-machine-gen/issues"
+  },
+  "homepage": "https://github.com/nuxy/slot-machine-gen#readme",
+  "author": "Marc S. Brooks <devel@mbrooks.info> (https://mbrooks.info)",
+  "license": "MIT",
+  "devDependencies": {
+    "@node-minify/clean-css": "^4.0.5",
+    "@node-minify/cli": "^4.1.0",
+    "@node-minify/uglify-js": "^4.0.5",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
+    "node-sass": "^4.13.0",
+    "eslint": "^5.16.0"
+  }
+}

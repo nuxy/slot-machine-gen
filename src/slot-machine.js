@@ -14,7 +14,10 @@ function SlotMachine(container, options) {
     reelCount: 3,
     reelHeight: 1320,
     reelWidth: 200,
-    reels: []
+    reels: [],
+    rngFunc: function() {
+      return Math.random();
+    }
   };
 
   (function() {
@@ -106,14 +109,14 @@ function SlotMachine(container, options) {
    *
    * @return {Object}
    */
-   function selectRandItem(items) {
+  function selectRandItem(items) {
     let totalWeight = 0;
 
     for (let i = 0; i < items.length; i++) {
       totalWeight += items[i].weight;
     }
 
-    let randNum = Math.random() * totalWeight;
+    let randNum = getRandom() * totalWeight;
 
     for (let j = 0; j < items.length; j++) {
       if (randNum < items[j].weight) {
@@ -122,6 +125,33 @@ function SlotMachine(container, options) {
 
       randNum -= items[j].weight;
     }
+  }
+
+  /**
+   * Get random number between 0 (inclusive) and 1 (exclusive).
+   *
+   * @return {number}
+   */
+  function getRandom() {
+    return self.options.rngFunc();
+  }
+
+  /**
+   * Get random integer between two values.
+   *
+   * @param {Number} min
+   *   Minimum value (default: 0).
+   *
+   * @param {Number} max
+   *   Maximum value (default: 10).
+   *
+   * @return {Number}
+   */
+  function getRandomInt(min = 1, max = 10) {
+    const minNum = Math.ceil(min);
+    const maxNum = Math.floor(max);
+
+    return Math.floor(getRandom() * (Math.floor(maxNum) - minNum)) + minNum;
   }
 
   /**

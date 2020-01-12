@@ -9,15 +9,15 @@
       transform-style: preserve-3d;
 
       &.start {
-        animation: init 300ms ease-out reverse;
+        animation: init 300ms ease-in reverse;
       }
 
       &.spin {
-        animation: spin 3000ms linear infinite reverse;
+        animation: spin 600ms linear infinite reverse;
       }
 
       &.stop {
-        animation: init 1000ms ease-in reverse;
+        animation: init 1000ms ease-out reverse;
       }
 
       li {

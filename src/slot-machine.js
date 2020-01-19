@@ -10,14 +10,15 @@
 function SlotMachine(container, options) {
   const self = this;
 
+  const STRIP_TOTAL = 24;
+
   const defaults = {
-    reelCount: 3,
     reelHeight: 1320,
-    reelWidth: 200,
+    reelWidth:  200,
     reels: [],
     rngFunc: function() {
       return Math.random();
-    }
+    },
   };
 
   (function() {
@@ -34,25 +35,18 @@ function SlotMachine(container, options) {
    * Initialize slot reels.
    */
   function initReels() {
-    const reels = document.createElement('div');
-    reels.classList.add('reels');
+    const div = document.createElement('div');
+    div.classList.add('reels');
 
-    self.reels = self.options.reels;
+    self.options.reels.forEach(reel => {
+      const elm = createReelElm(reel, reel.items[0].position);
 
-    for (let i = 1; i <= self.options.reelCount; i++) {
-      const name = `reel${i}`;
-      const reel = self.reels[name];
+      div.appendChild(elm);
 
-      const elm = createReelElm(reel);
-      elm.classList.add(name);
+      reel['element'] = elm;
+    });
 
-      reels.appendChild(elm);
-
-      reel['selected'] = selectRandItem(reel.items);
-      reel['_element'] = elm;
-    }
-
-    container.appendChild(reels);
+    container.appendChild(div);
   }
 
   /**
@@ -61,18 +55,17 @@ function SlotMachine(container, options) {
    * @param {Object} config
    *   Config options.
    *
+   * @param {Number} startPos
+   *   Start position.
+   *
    * @return {Element}
    */
-  function createReelElm(config) {
-    const reelHeight = self.options.reelHeight;
-    const reelWidth  = self.options.reelWidth;
-
-    const stripTotal  = 24;
-    const stripHeight = reelHeight / stripTotal;
-    const stripWidth  = reelWidth;
+  function createReelElm(config, startPos = 0) {
+    const stripHeight = getStripHeight();
+    const stripWidth  = getStripWidth();
 
     const reelDiam = Math.trunc(
-      Math.tan(90 / Math.PI - 15) * (stripHeight * 0.5) * 3.8
+      Math.tan(90 / Math.PI - 15) * (stripHeight * 0.5) * 4
     );
 
     const marginTop = (reelDiam / 2) + (stripHeight / 2) * 4;
@@ -83,11 +76,11 @@ function SlotMachine(container, options) {
     ul.style.width     = stripWidth  + 'px';
     ul.classList.add('reel');
 
-    for (let i = 0; i < stripTotal; i++) {
+    for (let i = 0; i < STRIP_TOTAL; i++) {
       const li = document.createElement('li');
 
-      const imgPosY = -Math.abs(stripHeight * i);
-      const rotateX = (stripTotal * 15) - (i * 15);
+      const imgPosY = -Math.abs((stripHeight * i) + startPos);
+      const rotateX = (STRIP_TOTAL * 15) - (i * 15);
 
       // Position image per the strip angle/container radius.
       li.style.background = `url(${config.imageUrl}) 0px ${imgPosY}px`;
@@ -102,7 +95,7 @@ function SlotMachine(container, options) {
   }
 
   /**
-   * Biased selection of a random item by weight.
+   * Select a random item by weight.
    *
    * @param {Array<Object>} items
    *   List of items.
@@ -112,19 +105,59 @@ function SlotMachine(container, options) {
   function selectRandItem(items) {
     let totalWeight = 0;
 
-    for (let i = 0; i < items.length; i++) {
-      totalWeight += items[i].weight;
+    const itemTotal = items.length;
+
+    for (let i = 0; i < itemTotal; i++) {
+      const item   = items[i];
+      const weight = item.weight;
+
+      totalWeight += weight;
     }
 
     let randNum = getRandom() * totalWeight;
 
-    for (let j = 0; j < items.length; j++) {
-      if (randNum < items[j].weight) {
-        return items[j];
+    for (let j = 0; j < itemTotal; j++) {
+      const item   = items[j];
+      const weight = item.weight;
+
+      if (randNum < weight) {
+        return item;
       }
 
-      randNum -= items[j].weight;
+     randNum -= weight;
     }
+  }
+
+  /**
+   * Spin the reels and try your luck.
+   */
+  function play() {
+    const stripHeight = getStripHeight();
+
+    self.options.reels.forEach(reel => {
+      const selected = selectRandItem(reel.items);
+
+      // Start the rotation animation.
+      const elm = reel.element;
+      elm.classList.remove('stop');
+      elm.classList.toggle('spin');
+
+      // Shift images to select position.
+      elm.childNodes.forEach((li, index) => {
+        const imgPosY = -Math.abs((stripHeight * index) + selected.position);
+
+        li.style.backgroundPositionY = imgPosY + 'px';
+      });
+
+      // Randomly stop rotation animation.
+      const timer = window.setTimeout(() => {
+        elm.classList.replace('spin', 'stop');
+
+        self.isAnimating = false;
+
+        window.clearTimeout(timer);
+      }, 1000 * getRandomInt(1, 4));
+    });
   }
 
   /**
@@ -155,18 +188,42 @@ function SlotMachine(container, options) {
   }
 
   /**
+   * Calculate the strip height.
+   *
+   * @return {Number}
+   */
+  function getStripHeight() {
+    return self.options.reelHeight / STRIP_TOTAL;
+  }
+
+  /**
+   * Calculate the strip width.
+   *
+   * @return {Number}
+   */
+  function getStripWidth() {
+    return self.options.reelWidth;
+  }
+
+  /**
+   * Dispatch game actions.
+   *
+   * @param {Function} func
+   *   Function to execute.
+   */
+  function dispatch(func) {
+    if (!self.isAnimating) {
+      self.isAnimating = true;
+
+      func.call(self);
+    }
+  }
+
+  /**
    * Protected members.
    */
   this.play = function() {
-    Object.keys(self.reels).forEach(key => {
-      const elm = self.reels[key]._element;
-
-      elm.classList.add('start');
-
-      window.setTimeout(function() {
-        elm.classList.replace('start', 'spin');
-      }, 200);
-    });
+    dispatch(play);
   };
 }
 

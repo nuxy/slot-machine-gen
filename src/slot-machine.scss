@@ -1,6 +1,9 @@
 .slot-machine {
+  height: 480px;
+  width: 600px;
+
   .reels {
-    background-color: transparent;
+    height: inherit;
 
     ul.reel {
       display: inline-block;

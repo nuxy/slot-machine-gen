@@ -22,8 +22,8 @@
       const slot = slotMachine(
         machine,
         {
-          reels: {
-            reel1: {
+          reels: [
+            {
               imageUrl: '../images/reel-strip1.png',
               items: [
                 {
@@ -58,7 +58,7 @@
                 }
               ]
             },
-            reel2: {
+            {
               imageUrl: '../images/reel-strip2.png',
               items: [
                 {
@@ -93,7 +93,7 @@
                 }
               ]
             },
-            reel3: {
+            {
               imageUrl: '../images/reel-strip3.png',
               items: [
                 {
@@ -128,7 +128,7 @@
                 }
               ]
             }
-          }
+          ]
         }
       );
 

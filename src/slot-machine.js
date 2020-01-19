@@ -17,6 +17,8 @@ function SlotMachine(container, options) {
     reelWidth:  200,
     reels: [],
     rngFunc: function() {
+
+      // The weakest link.
       return Math.random();
     },
   };
@@ -124,14 +126,14 @@ function SlotMachine(container, options) {
         return item;
       }
 
-     randNum -= weight;
+      randNum -= weight;
     }
   }
 
   /**
    * Spin the reels and try your luck.
    */
-  function play() {
+  function spinReels() {
     const stripHeight = getStripHeight();
 
     self.options.reels.forEach(reel => {
@@ -223,7 +225,7 @@ function SlotMachine(container, options) {
    * Protected members.
    */
   this.play = function() {
-    dispatch(play);
+    dispatch(spinReels);
   };
 }
 

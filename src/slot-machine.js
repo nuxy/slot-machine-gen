@@ -10,7 +10,7 @@
 function SlotMachine(container, reels = [], options) {
   const self = this;
 
-  const STRIP_TOTAL = 24;
+  const REEL_SEGMENT_TOTAL = 24;
 
   const defaults = {
     reelHeight: 1320,
@@ -67,11 +67,13 @@ function SlotMachine(container, reels = [], options) {
     const stripHeight = getStripHeight();
     const stripWidth  = getStripWidth();
 
-    const reelDiam = Math.trunc(
-      Math.tan(90 / Math.PI - 15) * (stripHeight * 0.5) * 4
+    const segmentDeg = 360 / REEL_SEGMENT_TOTAL;
+
+    const transZ = Math.trunc(
+      Math.tan(90 / Math.PI - segmentDeg) * (stripHeight * 0.5) * 4
     );
 
-    const marginTop = (reelDiam / 2) + (stripHeight / 2) * 4;
+    const marginTop = (transZ / 2) + (stripHeight / 2) * 4;
 
     const ul = document.createElement('ul');
     ul.style.height    = stripHeight + 'px';
@@ -79,17 +81,17 @@ function SlotMachine(container, reels = [], options) {
     ul.style.width     = stripWidth  + 'px';
     ul.classList.add('reel');
 
-    for (let i = 0; i < STRIP_TOTAL; i++) {
+    for (let i = 0; i < REEL_SEGMENT_TOTAL; i++) {
       const li = document.createElement('li');
 
       const imgPosY = -Math.abs((stripHeight * i) + startPos);
-      const rotateX = (STRIP_TOTAL * 15) - (i * 15);
+      const rotateX = (REEL_SEGMENT_TOTAL * segmentDeg) - (i * segmentDeg);
 
       // Position image per the strip angle/container radius.
       li.style.background = `url(${config.imageUrl}) 0px ${imgPosY}px`;
       li.style.height     = stripHeight + 'px';
       li.style.width      = stripWidth  + 'px';
-      li.style.transform  = `rotateX(${rotateX}deg) translateZ(${reelDiam}px)`;
+      li.style.transform  = `rotateX(${rotateX}deg) translateZ(${transZ}px)`;
 
       ul.appendChild(li);
     }
@@ -147,7 +149,7 @@ function SlotMachine(container, reels = [], options) {
 
       // Shift images to select position.
       elm.childNodes.forEach((li, index) => {
-        const imgPosY = -Math.abs((stripHeight * index) + selected.position);
+        const imgPosY = -Math.abs(stripHeight * index + selected.position);
 
         li.style.backgroundPositionY = imgPosY + 'px';
       });
@@ -196,7 +198,7 @@ function SlotMachine(container, reels = [], options) {
    * @return {Number}
    */
   function getStripHeight() {
-    return self.options.reelHeight / STRIP_TOTAL;
+    return self.options.reelHeight / REEL_SEGMENT_TOTAL;
   }
 
   /**

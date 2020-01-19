@@ -21,115 +21,113 @@
 
       const slot = slotMachine(
         machine,
-        {
-          reels: [
-            {
-              imageUrl: '../images/reel-strip1.png',
-              items: [
-                {
-                  title: 'green',
-                  position: 95,
-                  weight: 2
-                },
-                {
-                  title: 'blue',
-                  position: 335,
-                  weight: 6
-                },
-                {
-                  title: 'purple',
-                  position: 560,
-                  weight: 3
-                },
-                {
-                  title: 'orange',
-                  position: 755,
-                  weight: 5
-                },
-                {
-                  title: 'blue',
-                  position: 1020,
-                  weight: 6
-                },
-                {
-                  title: 'red',
-                  position: 1220,
-                  weight: 1
-                }
-              ]
-            },
-            {
-              imageUrl: '../images/reel-strip2.png',
-              items: [
-                {
-                  title: 'purple',
-                  position: 95,
-                  weight: 3
-                },
-                {
-                  title: 'blue',
-                  position: 300,
-                  weight: 6
-                },
-                {
-                  title: 'green',
-                  position: 520,
-                  weight: 2
-                },
-                {
-                  title: 'red',
-                  position: 760,
-                  weight: 1
-                },
-                {
-                  title: 'blue',
-                  position: 970,
-                  weight: 6
-                },
-                {
-                  title: 'orange',
-                  position: 1225,
-                  weight: 5
-                }
-              ]
-            },
-            {
-              imageUrl: '../images/reel-strip3.png',
-              items: [
-                {
-                  title: 'orange',
-                  position: 95,
-                  weight: 5
-                },
-                {
-                  title: 'blue',
-                  position: 310,
-                  weight: 6
-                },
-                {
-                  title: 'blue',
-                  position: 555,
-                  weight: 6
-                },
-                {
-                  title: 'purple',
-                  position: 770,
-                  weight: 3
-                },
-                {
-                  title: 'red',
-                  position: 985,
-                  weight: 1
-                },
-                {
-                  title: 'green',
-                  position: 1215,
-                  weight: 2
-                }
-              ]
-            }
-          ]
-        }
+        [
+          {
+            imageUrl: '../images/reel-strip1.png',
+            items: [
+              {
+                title: 'green',
+                position: 95,
+                weight: 2
+              },
+              {
+                title: 'blue',
+                position: 335,
+                weight: 6
+              },
+              {
+                title: 'purple',
+                position: 560,
+                weight: 3
+              },
+              {
+                title: 'orange',
+                position: 755,
+                weight: 5
+              },
+              {
+                title: 'blue',
+                position: 1020,
+                weight: 6
+              },
+              {
+                title: 'red',
+                position: 1220,
+                weight: 1
+              }
+            ]
+          },
+          {
+            imageUrl: '../images/reel-strip2.png',
+            items: [
+              {
+                title: 'purple',
+                position: 95,
+                weight: 3
+              },
+              {
+                title: 'blue',
+                position: 300,
+                weight: 6
+              },
+              {
+                title: 'green',
+                position: 520,
+                weight: 2
+              },
+              {
+                title: 'red',
+                position: 760,
+                weight: 1
+              },
+              {
+                title: 'blue',
+                position: 970,
+                weight: 6
+              },
+              {
+                title: 'orange',
+                position: 1225,
+                weight: 5
+              }
+            ]
+          },
+          {
+            imageUrl: '../images/reel-strip3.png',
+            items: [
+              {
+                title: 'orange',
+                position: 95,
+                weight: 5
+              },
+              {
+                title: 'blue',
+                position: 310,
+                weight: 6
+              },
+              {
+                title: 'blue',
+                position: 555,
+                weight: 6
+              },
+              {
+                title: 'purple',
+                position: 770,
+                weight: 3
+              },
+              {
+                title: 'red',
+                position: 985,
+                weight: 1
+              },
+              {
+                title: 'green',
+                position: 1215,
+                weight: 2
+              }
+            ]
+          }
+        ]
       );
 
       button.addEventListener('click', () => slot.play());

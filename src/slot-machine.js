@@ -7,7 +7,7 @@
  *  http://www.opensource.org/licenses/mit-license.php
  */
 
-function SlotMachine(container, options) {
+function SlotMachine(container, reels = [], options) {
   const self = this;
 
   const STRIP_TOTAL = 24;
@@ -15,7 +15,6 @@ function SlotMachine(container, options) {
   const defaults = {
     reelHeight: 1320,
     reelWidth:  200,
-    reels: [],
     rngFunc: function() {
 
       // The weakest link.
@@ -26,7 +25,7 @@ function SlotMachine(container, options) {
   (function() {
     self.options = Object.assign(defaults, options);
 
-    if (self.options.reels) {
+    if (reels) {
       initReels();
     } else {
       throw new Error('Failed to initialize (missing reels)');
@@ -40,13 +39,15 @@ function SlotMachine(container, options) {
     const div = document.createElement('div');
     div.classList.add('reels');
 
-    self.options.reels.forEach(reel => {
+    reels.forEach(reel => {
       const elm = createReelElm(reel, reel.items[0].position);
 
       div.appendChild(elm);
 
       reel['element'] = elm;
     });
+
+    div.addEventListener('click', () => spinReels());
 
     container.appendChild(div);
   }
@@ -136,7 +137,7 @@ function SlotMachine(container, options) {
   function spinReels() {
     const stripHeight = getStripHeight();
 
-    self.options.reels.forEach(reel => {
+    reels.forEach(reel => {
       const selected = selectRandItem(reel.items);
 
       // Start the rotation animation.
@@ -232,8 +233,8 @@ function SlotMachine(container, options) {
 /**
  * Set global/exportable instance, where supported.
  */
-window.slotMachine = function(container, options) {
-  return new SlotMachine(container, options);
+window.slotMachine = function(container, reels, options) {
+  return new SlotMachine(container, reels, options);
 };
 
 if (typeof module !== 'undefined' && module.exports) {

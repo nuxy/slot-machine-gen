@@ -3,14 +3,19 @@
   width: 600px;
 
   .display {
+    display: flex;
     height: inherit;
     position: absolute;
     width: inherit;
     z-index: 2;
 
     .reel {
-      height: inherit;
-      float: left;
+      background-color: #eee;
+      border: 3px dashed #ccc;
+      border-radius: 10px;
+      height: calc(100% - 45px);
+      margin: 20px 10px 10px 10px;
+      opacity: 50%;
       width: 200px;
     }
   }

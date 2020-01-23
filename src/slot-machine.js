@@ -13,8 +13,9 @@ function SlotMachine(container, reels = [], options) {
   const REEL_SEGMENT_TOTAL = 24;
 
   const defaults = {
-    reelHeight: 1320,
+    reelHeight: 1200,
     reelWidth:  200,
+    reelOffset: 20,
     rngFunc: function() {
 
       // The weakest link.
@@ -109,7 +110,7 @@ function SlotMachine(container, reels = [], options) {
     for (let i = 0; i < REEL_SEGMENT_TOTAL; i++) {
       const li = document.createElement('li');
 
-      const imgPosY = -Math.abs((stripHeight * i) + startPos);
+      const imgPosY = getImagePosY(i, startPos);
       const rotateX = (REEL_SEGMENT_TOTAL * segmentDeg) - (i * segmentDeg);
 
       // Position image per the strip angle/container radius.
@@ -162,10 +163,9 @@ function SlotMachine(container, reels = [], options) {
    * Spin the reels and try your luck.
    */
   function spinReels() {
-    const stripHeight = getStripHeight();
-
     reels.forEach(reel => {
       const selected = selectRandItem(reel.items);
+      const startPos = selected.position;
 
       // Start the rotation animation.
       const elm = reel.element;
@@ -174,9 +174,7 @@ function SlotMachine(container, reels = [], options) {
 
       // Shift images to select position.
       elm.childNodes.forEach((li, index) => {
-        const imgPosY = -Math.abs(stripHeight * index + selected.position);
-
-        li.style.backgroundPositionY = imgPosY + 'px';
+        li.style.backgroundPositionY = getImagePosY(index, startPos) + 'px';
       });
 
       // Randomly stop rotation animation.
@@ -215,6 +213,23 @@ function SlotMachine(container, reels = [], options) {
     const maxNum = Math.floor(max);
 
     return Math.floor(getRandom() * (Math.floor(maxNum) - minNum)) + minNum;
+  }
+
+  /**
+   * Calculate the strip background position.
+   *
+   * @param {Number} index
+   *   Strip item index.
+   *
+   * @param {Number} position
+   *   Strip target position.
+   *
+   * @return {Number}
+   */
+  function getImagePosY(index, position) {
+    return -Math.abs(
+      (getStripHeight() * index) + (position - self.options.reelOffset)
+    );
   }
 
   /**

@@ -26,18 +26,43 @@ function SlotMachine(container, reels = [], options) {
     self.options = Object.assign(defaults, options);
 
     if (reels) {
-      initReels();
+      initGame();
     } else {
       throw new Error('Failed to initialize (missing reels)');
     }
   })();
 
   /**
-   * Initialize slot reels.
+   * Initialize a new game instance.
    */
-  function initReels() {
+  function initGame() {
+    createDisplayElm();
+    createSlotElm();
+  }
+
+  /**
+   * Create display elements.
+   */
+  function createDisplayElm() {
     const div = document.createElement('div');
-    div.classList.add('reels');
+    div.classList.add('display');
+
+    for (let i = 0; i < reels.length; i++) {
+      const elm = document.createElement('div');
+      elm.classList.add('reel');
+
+      div.appendChild(elm);
+    }
+
+    container.appendChild(div);
+  }
+
+  /**
+   * Create slot elements.
+   */
+  function createSlotElm() {
+    const div = document.createElement('div');
+    div.classList.add('slots');
 
     reels.forEach(reel => {
       const elm = createReelElm(reel, reel.items[0].position);

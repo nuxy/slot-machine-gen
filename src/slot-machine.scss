@@ -2,9 +2,23 @@
   height: 480px;
   width: 600px;
 
-  .reels {
+  .display {
+    height: inherit;
+    position: absolute;
+    width: inherit;
+    z-index: 2;
+
+    .reel {
+      height: inherit;
+      float: left;
+      width: 200px;
+    }
+  }
+
+  .slots {
     cursor: grab;
     height: inherit;
+    z-index: 1;
 
     ul.reel {
       display: inline-block;

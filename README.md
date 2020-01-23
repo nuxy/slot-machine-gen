@@ -51,39 +51,39 @@ const slot = new SlotMachine(container, reels, options);
 ```javascript
 const reels = [
   {
-    imageUrl: 'path/to/file.png',
+    imageUrl: 'path/to/image.png',
     items: [
       {
-        title: 'green',
-        position: 95,
+        title: 'cherry',
+        position: 100,
         weight: 2
       },
       {
-        title: 'blue',
-        position: 335,
+        title: 'plum',
+        position: 300,
         weight: 6
       },
       {
-        title: 'purple',
-        position: 560,
-        weight: 3
-      },
-      {
-       title: 'orange',
-        position: 755,
+        title: 'orange',
+        position: 500,
         weight: 5
       },
       {
-       title: 'blue',
-        position: 1020,
-        weight: 6
+        title: 'bell',
+        position: 700,
+        weight: 1
       },
       {
-       title: 'red',
-        position: 1220,
-        weight: 1
-     }
-    ]
+        title: 'cherry',
+        position: 900,
+        weight: 3
+      },
+      {
+        title: 'plum',
+        position: 1100,
+        weight: 5
+      }
+    }
   },
 
   // add more reels ...
@@ -98,6 +98,7 @@ Customization and overriding defaults can be done using the following options:
 |------------|----------------------------------------------------|-----------|---------------|
 | reelHeight | Reel background image height.                      | Number    | 1320          |
 | reelWidth  | Reel background image width.                       | Number    | 200           |
+| reelOffset | Reel background image vertical offset              | Number    | 20            |
 | rngFunc    | Custom RNG between 0 (inclusive) and 1 (exclusive) | Function  | Math.random() |
 
 ## Developers

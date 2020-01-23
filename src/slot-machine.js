@@ -15,7 +15,6 @@ function SlotMachine(container, reels = [], options) {
   const defaults = {
     reelHeight: 1200,
     reelWidth:  200,
-    reelOffset: 20,
     rngFunc: function() {
 
       // The weakest link.
@@ -228,7 +227,7 @@ function SlotMachine(container, reels = [], options) {
    */
   function getImagePosY(index, position) {
     return -Math.abs(
-      (getStripHeight() * index) + (position - self.options.reelOffset)
+      (getStripHeight() * index) + (position - 20)
     );
   }
 

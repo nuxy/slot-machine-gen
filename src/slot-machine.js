@@ -55,6 +55,8 @@ function SlotMachine(container, reels = [], options) {
       div.appendChild(elm);
     }
 
+    div.addEventListener('click', () => spinReels());
+
     container.appendChild(div);
   }
 
@@ -72,8 +74,6 @@ function SlotMachine(container, reels = [], options) {
 
       reel['element'] = elm;
     });
-
-    div.addEventListener('click', () => spinReels());
 
     container.appendChild(div);
   }
@@ -99,7 +99,7 @@ function SlotMachine(container, reels = [], options) {
       Math.tan(90 / Math.PI - segmentDeg) * (stripHeight * 0.5) * 4
     );
 
-    const marginTop = (transZ / 2) + (stripHeight / 2) * 4;
+    const marginTop = transZ + stripHeight / 2;
 
     const ul = document.createElement('ul');
     ul.style.height    = stripHeight + 'px';

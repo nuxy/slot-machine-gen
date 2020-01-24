@@ -16,6 +16,7 @@ function SlotMachine(container, reels = [], options) {
     reelHeight: 1200,
     reelWidth:  200,
     reelOffset: 20,
+    animSpeed:  1000,
     rngFunc: function() {
 
       // The weakest link.
@@ -184,7 +185,7 @@ function SlotMachine(container, reels = [], options) {
         self.isAnimating = false;
 
         window.clearTimeout(timer);
-      }, 1000 * getRandomInt(1, 4));
+      }, self.options.animSpeed * getRandomInt(1, 4));
     });
   }
 

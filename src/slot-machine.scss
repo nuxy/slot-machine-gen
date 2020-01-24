@@ -13,15 +13,15 @@
       background-color: #eee;
       border: 3px solid #ccc;
       border-radius: 10px;
-      height: calc(100% - 106px);
-      margin: 28px 10px 10px 10px;
+      cursor: pointer;
+      height: calc(100% - 105px);
+      margin: 45px 10px;
       opacity: 50%;
       width: 200px;
     }
   }
 
   .slots {
-    cursor: grab;
     height: inherit;
     z-index: 1;
 

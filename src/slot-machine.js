@@ -7,7 +7,7 @@
  *  http://www.opensource.org/licenses/mit-license.php
  */
 
-function SlotMachine(container, reels = [], options) {
+function SlotMachine(container, reels = [], callback, options) {
   const self = this;
 
   const REEL_SEGMENT_TOTAL = 24;
@@ -164,9 +164,13 @@ function SlotMachine(container, reels = [], options) {
    * Spin the reels and try your luck.
    */
   function spinReels() {
+    const payline = [];
+
     reels.forEach(reel => {
       const selected = selectRandItem(reel.items);
       const startPos = selected.position;
+
+      payline.push(selected);
 
       // Start the rotation animation.
       const elm = reel.element;
@@ -187,6 +191,8 @@ function SlotMachine(container, reels = [], options) {
         window.clearTimeout(timer);
       }, self.options.animSpeed * getRandomInt(1, 4));
     });
+
+    callback(payline);
   }
 
   /**
@@ -276,8 +282,8 @@ function SlotMachine(container, reels = [], options) {
 /**
  * Set global/exportable instance, where supported.
  */
-window.slotMachine = function(container, reels, options) {
-  return new SlotMachine(container, reels, options);
+window.slotMachine = function(container, reels, callback, options) {
+  return new SlotMachine(container, reels, callback, options);
 };
 
 if (typeof module !== 'undefined' && module.exports) {

@@ -27,7 +27,7 @@ After you [build the distribution sources](#cli-options) the set-up is fairly si
 <link rel="stylesheet" href="path/to/slot-machine.min.css" media="all" />
 
 <script type="text/javascript">
-  var slot = slotMachine(container, reels, options);
+  var slotMachine = slotMachine(container, reels, options);
 </script>
 ```
 
@@ -39,7 +39,7 @@ If your using a modern framework like [Aurelia](https://aurelia.io), [Angular](h
 import SlotMachine from 'slot-machine-gen';
 import 'slot-machine-gen/dist/css/slot-machine.css';
 
-const slot = new SlotMachine(container, reels, options);
+const slotMachine = new SlotMachine(container, reels, callback, options);
 ```
 
 ## HTML markup

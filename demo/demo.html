@@ -16,119 +16,122 @@
 
     <script type="text/javascript" src="../dist/slot-machine.min.js"></script>
     <script>
+      const reels =         [
+        {
+          imageUrl: '../images/reel-strip1.png',
+          items: [
+            {
+              title: 'cherry',
+              position: 100,
+              weight: 2
+            },
+            {
+              title: 'plum',
+              position: 300,
+              weight: 6
+            },
+            {
+              title: 'orange',
+              position: 500,
+              weight: 5
+            },
+            {
+              title: 'bell',
+              position: 700,
+              weight: 1
+            },
+            {
+              title: 'cherry',
+              position: 900,
+              weight: 3
+            },
+            {
+              title: 'plum',
+              position: 1100,
+              weight: 5
+            }
+          ]
+        },
+        {
+          imageUrl: '../images/reel-strip2.png',
+          items: [
+            {
+              title: 'orange',
+              position: 100,
+              weight: 6
+            },
+            {
+              title: 'plum',
+              position: 300,
+              weight: 5
+            },
+            {
+              title: 'orange',
+              position: 500,
+              weight: 3
+            },
+            {
+              title: 'plum',
+              position: 700,
+              weight: 5
+            },
+            {
+              title: 'cherry',
+              position: 900,
+              weight: 2
+            },
+            {
+              title: 'bell',
+              position: 1100,
+              weight: 1
+            }
+          ]
+        },
+        {
+          imageUrl: '../images/reel-strip3.png',
+          items: [
+            {
+              title: 'cherry',
+              position: 100,
+              weight: 4
+            },
+            {
+              title: 'bell',
+              position: 300,
+              weight: 1
+            },
+            {
+              title: 'orange',
+              position: 500,
+              weight: 6
+            },
+            {
+              title: 'plum',
+              position: 700,
+              weight: 5
+            },
+            {
+              title: 'plum',
+              position: 900,
+              weight: 3
+            },
+            {
+              title: 'cherry',
+              position: 1100,
+              weight: 2
+            }
+          ]
+        }
+      ];
+
+      const callback = function(payline) {
+        window.alert(payline[0].title + ' | ' + payline[1].title + ' | ' + payline[2].title);
+      };
+
       var machine = document.getElementById('slot-machine');
       var button  = document.getElementById('play-button');
 
-      const slot = slotMachine(
-        machine,
-        [
-          {
-            imageUrl: '../images/reel-strip1.png',
-            items: [
-              {
-                title: 'cherry',
-                position: 100,
-                weight: 2
-              },
-              {
-                title: 'plum',
-                position: 300,
-                weight: 6
-              },
-              {
-                title: 'orange',
-                position: 500,
-                weight: 5
-              },
-              {
-                title: 'bell',
-                position: 700,
-                weight: 1
-              },
-              {
-                title: 'cherry',
-                position: 900,
-                weight: 3
-              },
-              {
-                title: 'plum',
-                position: 1100,
-                weight: 5
-              }
-            ]
-          },
-          {
-            imageUrl: '../images/reel-strip2.png',
-            items: [
-              {
-                title: 'orange',
-                position: 100,
-                weight: 6
-              },
-              {
-                title: 'plum',
-                position: 300,
-                weight: 5
-              },
-              {
-                title: 'orange',
-                position: 500,
-                weight: 3
-              },
-              {
-                title: 'plum',
-                position: 700,
-                weight: 5
-              },
-              {
-                title: 'cherry',
-                position: 900,
-                weight: 2
-              },
-              {
-                title: 'bell',
-                position: 1100,
-                weight: 1
-              }
-            ]
-          },
-          {
-            imageUrl: '../images/reel-strip3.png',
-            items: [
-              {
-                title: 'cherry',
-                position: 100,
-                weight: 4
-              },
-              {
-                title: 'bell',
-                position: 300,
-                weight: 1
-              },
-              {
-                title: 'orange',
-                position: 500,
-                weight: 6
-              },
-              {
-                title: 'plum',
-                position: 700,
-                weight: 5
-              },
-              {
-                title: 'plum',
-                position: 900,
-                weight: 3
-              },
-              {
-                title: 'cherry',
-                position: 1100,
-                weight: 2
-              }
-            ]
-          }
-        ]
-      );
+      const slot = slotMachine(machine, reels, callback);
 
       button.addEventListener('click', () => slot.play());
     </script>

@@ -2,6 +2,8 @@
 
 Create an extremely biased, web-based slot machine game.
 
+![Preview](https://raw.githubusercontent.com/nuxy/slot-machine-gen/master/package.png)
+
 ## Dependencies
 
 - [Node.js](https://nodejs.org)

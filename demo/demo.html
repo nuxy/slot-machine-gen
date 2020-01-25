@@ -7,13 +7,6 @@
     <link rel="stylesheet" type="text/css" href="../dist/slot-machine.min.css" />
     <link rel="stylesheet" type="text/css" href="css/demo.css" />
 
-    <title>Create an extremely biased, web-based slot machine game | Slot Machine Generator</title>
-  </head>
-  <body>
-    <div id="slot-machine" class="slot-machine"></div>
-
-    <button id="play-button">Play</button>
-
     <script type="text/javascript" src="../dist/slot-machine.min.js"></script>
     <script>
       const reels = [
@@ -124,16 +117,25 @@
         }
       ];
 
-      const callback = function(payline) {
-        window.alert(payline[0].title + ' | ' + payline[1].title + ' | ' + payline[2].title);
+      window.onload = function() {
+        const callback = function(payLine) {
+          window.alert(payLine[0].title + ' | ' + payLine[1].title + ' | ' + payLine[2].title);
+        };
+
+        var machine = document.getElementById('slot-machine');
+        var button = document.getElementById('play-button');
+
+        const slot = slotMachine(machine, reels, callback);
+
+        button.addEventListener('click', () => slot.play());
       };
-
-      var machine = document.getElementById('slot-machine');
-      var button  = document.getElementById('play-button');
-
-      const slot = slotMachine(machine, reels, callback);
-
-      button.addEventListener('click', () => slot.play());
     </script>
+
+    <title>Create an extremely biased, web-based slot machine game | Slot Machine Generator</title>
+  </head>
+  <body>
+    <div id="slot-machine" class="slot-machine"></div>
+
+    <button id="play-button">Play</button>
   </body>
 </html>

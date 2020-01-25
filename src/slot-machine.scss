@@ -10,15 +10,30 @@
     z-index: 2;
 
     .reel {
-      background-color: #eee;
-      border: 2px solid #777;
+      background: transparent;
+      border: 1px solid #999;
       border-radius: 10px;
-      box-shadow: inset 0.3em 0.3em 0.9em #000;
       cursor: pointer;
       height: calc(100% - 103px);
       margin: 47px 10px;
-      opacity: 40%;
+      overflow: hidden;
       width: 200px;
+
+      &:after {
+        box-shadow: inset -2em -2em 3em #0C090A;
+      }
+
+      &:before {
+        box-shadow: inset -2em 2em 3em #0C090A;
+      }
+
+      &:after,
+      &:before {
+        content: '';
+        display: block;
+        height: 50%;
+        width: calc(100% + 100px);
+      }
     }
   }
 

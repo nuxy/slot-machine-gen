@@ -7,6 +7,21 @@
  *  http://www.opensource.org/licenses/mit-license.php
  */
 
+'use strict';
+
+/**
+ * @param {Element} container
+ *   Containing HTML element.
+ *
+ * @param {Array<Object>} reels
+ *   Reel configuration.
+ *
+ * @param {Function} callback
+ *   Returns selected pay-line items.
+ *
+ * @param {Object} options
+ *   Configuration overrides.
+ */
 function SlotMachine(container, reels = [], callback, options) {
   const self = this;
 
@@ -164,13 +179,13 @@ function SlotMachine(container, reels = [], callback, options) {
    * Spin the reels and try your luck.
    */
   function spinReels() {
-    const payline = [];
+    const payLine = [];
 
     reels.forEach(reel => {
       const selected = selectRandItem(reel.items);
       const startPos = selected.position;
 
-      payline.push(selected);
+      payLine.push(selected);
 
       // Start the rotation animation.
       const elm = reel.element;
@@ -192,7 +207,7 @@ function SlotMachine(container, reels = [], callback, options) {
       }, self.options.animSpeed * getRandomInt(1, 4));
     });
 
-    callback(payline);
+    callback(payLine);
   }
 
   /**

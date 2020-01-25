@@ -53,7 +53,7 @@ const slotMachine = new SlotMachine(container, reels, callback, options);
 ```javascript
 const reels = [
   {
-    imageUrl: 'path/to/image.png',
+    imageSrc: 'path/to/image.png',
     items: [
       {
         title: 'cherry',

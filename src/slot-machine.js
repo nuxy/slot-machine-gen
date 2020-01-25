@@ -130,7 +130,7 @@ function SlotMachine(container, reels = [], callback, options) {
       const rotateX = (REEL_SEGMENT_TOTAL * segmentDeg) - (i * segmentDeg);
 
       // Position image per the strip angle/container radius.
-      li.style.background = `url(${config.imageUrl}) 0px ${imgPosY}px`;
+      li.style.background = `url(${config.imageSrc}) 0px ${imgPosY}px`;
       li.style.height     = stripHeight + 'px';
       li.style.width      = stripWidth  + 'px';
       li.style.transform  = `rotateX(${rotateX}deg) translateZ(${transZ}px)`;

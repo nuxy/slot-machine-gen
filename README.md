@@ -6,7 +6,7 @@ Create an extremely biased, web-based slot machine game.
 
 ## Features
 
-- Faux-panoramic reel animations (without `CANVAS`)
+- Faux-panoramic reel animations (without `<canvas>`)
 - Support for single/multi-line reels and pay-lines.
 - Pseudo-random selections by configured weight.
 - Configurable RNG (to make it less biased)
@@ -56,13 +56,23 @@ const slotMachine = new SlotMachine(container, reels, callback, options);
 <div id="slot-machine" class="slot-machine"></div>
 ```
 
-## Reels strips
+## Reels configuration
+
+Outside of a reel image source, `symbols` must contain the following:
+
+| Key      | Description                                 | Type   |
+|----------|---------------------------------------------|--------|
+| title    | Name of the strip symbol                    | String |
+| position | Symbol center calculated from the strip top | Number |
+| weight   | Selection weight (>1 increases odds)        | Number |
+
+### Example
 
 ```javascript
 const reels = [
   {
     imageSrc: 'path/to/image.png',
-    items: [
+    symbols: [
       {
         title: 'cherry',
         position: 100,
@@ -111,6 +121,10 @@ Customization and overriding defaults can be done using the following options:
 | reelOffset | Reel background image vertical offset              | Number    | 20            |
 | animSpeed  | Slot animation speed (in milliseconds)             | Number    | 1000          |
 | rngFunc    | Custom RNG between 0 (inclusive) and 1 (exclusive) | Function  | Math.random() |
+
+## Customizing symbols
+
+Creating a custom strip is fairly easy.  What is most important is that each symbol, whether an image or blank space, contains a vertical `position` that can be measured by calculating the symbol center (in pixels) from the strip top. A [Photoshop example](https://raw.githubusercontent.com/nuxy/slot-machine-gen/master/images/reel-strip.psd) has been provided with this package for reference.
 
 ## Developers
 

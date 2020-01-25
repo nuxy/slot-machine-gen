@@ -17,7 +17,7 @@
  *   Reel configuration.
  *
  * @param {Function} callback
- *   Returns selected pay-line items.
+ *   Returns selected pay-line symbols.
  *
  * @param {Object} options
  *   Configuration overrides.
@@ -84,7 +84,7 @@ function SlotMachine(container, reels = [], callback, options) {
     div.classList.add('slots');
 
     reels.forEach(reel => {
-      const elm = createReelElm(reel, reel.items[0].position);
+      const elm = createReelElm(reel, reel.symbols[0].position);
 
       div.appendChild(elm);
 
@@ -142,33 +142,33 @@ function SlotMachine(container, reels = [], callback, options) {
   }
 
   /**
-   * Select a random item by weight.
+   * Select a random symbol by weight.
    *
-   * @param {Array<Object>} items
-   *   List of items.
+   * @param {Array<Object>} symbols
+   *   List of symbols.
    *
    * @return {Object}
    */
-  function selectRandItem(items) {
+  function selectRandSymbol(symbols) {
     let totalWeight = 0;
 
-    const itemTotal = items.length;
+    const symbolTotal = symbols.length;
 
-    for (let i = 0; i < itemTotal; i++) {
-      const item   = items[i];
-      const weight = item.weight;
+    for (let i = 0; i < symbolTotal; i++) {
+      const symbol = symbols[i];
+      const weight = symbol.weight;
 
       totalWeight += weight;
     }
 
     let randNum = getRandom() * totalWeight;
 
-    for (let j = 0; j < itemTotal; j++) {
-      const item   = items[j];
-      const weight = item.weight;
+    for (let j = 0; j < symbolTotal; j++) {
+      const symbol = symbols[j];
+      const weight = symbol.weight;
 
       if (randNum < weight) {
-        return item;
+        return symbol;
       }
 
       randNum -= weight;
@@ -182,7 +182,7 @@ function SlotMachine(container, reels = [], callback, options) {
     const payLine = [];
 
     reels.forEach(reel => {
-      const selected = selectRandItem(reel.items);
+      const selected = selectRandSymbol(reel.symbols);
       const startPos = selected.position;
 
       payLine.push(selected);
@@ -241,7 +241,7 @@ function SlotMachine(container, reels = [], callback, options) {
    * Calculate the strip background position.
    *
    * @param {Number} index
-   *   Strip item index.
+   *   Strip symbol index.
    *
    * @param {Number} position
    *   Strip target position.

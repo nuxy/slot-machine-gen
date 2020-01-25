@@ -12,6 +12,8 @@ Create an extremely biased, web-based slot machine game.
 - Configurable RNG (to make it less biased)
 - Easy to set-up and customize.
 
+Checkout the [demo](https://nuxy.github.io/slot-machine-gen) for examples of use.
+
 ## Dependencies
 
 - [Node.js](https://nodejs.org)

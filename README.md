@@ -1,4 +1,4 @@
-# Slot Machine Generator
+# Slot Machine Generator [![npm version](https://badge.fury.io/js/slot-machine-gen.svg)](https://badge.fury.io/js/slot-machine-gen) [![](https://img.shields.io/npm/dw/localeval.svg)](https://www.npmjs.com/package/slot-machine-gen)
 
 Create an extremely biased, web-based slot machine game.
 

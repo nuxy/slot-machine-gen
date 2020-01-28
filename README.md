@@ -37,7 +37,7 @@ After you [build the distribution sources](#cli-options) the set-up is fairly si
 <link rel="stylesheet" href="path/to/slot-machine.min.css" media="all" />
 
 <script type="text/javascript">
-  var slotMachine = slotMachine(container, reels, options);
+  var slotMachine = slotMachine(container, reels, callback, options);
 </script>
 ```
 

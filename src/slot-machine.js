@@ -20,9 +20,9 @@
  *   Returns selected pay-line symbols.
  *
  * @param {Object} options
- *   Configuration overrides.
+ *   Configuration overrides (optional).
  */
-function SlotMachine(container, reels = [], callback, options) {
+function SlotMachine(container, reels, callback, options) {
   const self = this;
 
   const REEL_SEGMENT_TOTAL = 24;
@@ -42,7 +42,7 @@ function SlotMachine(container, reels = [], callback, options) {
   (function() {
     self.options = Object.assign(defaults, options);
 
-    if (reels) {
+    if (reels.length > 0) {
       initGame();
     } else {
       throw new Error('Failed to initialize (missing reels)');

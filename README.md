@@ -62,11 +62,11 @@ const slotMachine = new SlotMachine(container, reels, callback, options);
 
 Outside of a reel image source, `symbols` must contain the following:
 
-| Key      | Description                                 | Type   |
-|----------|---------------------------------------------|--------|
-| title    | Name of the strip symbol                    | String |
-| position | Symbol center calculated from the strip top | Number |
-| weight   | Selection weight (>1 increases odds)        | Number |
+| Key      | Description                                             | Type   |
+|----------|---------------------------------------------------------|--------|
+| title    | Name of the strip symbol                                | String |
+| position | Symbol center (in pixels) calculated from the strip top | Number |
+| weight   | Selection weight (>1 increases odds)                    | Number |
 
 ### Example
 
@@ -118,15 +118,15 @@ Customization and overriding defaults can be done using the following options:
 
 | Option     | Description                                        | Type      | Default       |
 |------------|----------------------------------------------------|-----------|---------------|
-| reelHeight | Reel background image height.                      | Number    | 1320          |
+| reelHeight | Reel background image height (in pixels)           | Number    | 1320          |
 | reelWidth  | Reel background image width.                       | Number    | 200           |
-| reelOffset | Reel background image vertical offset              | Number    | 20            |
+| reelOffset | Reel background image vertical offset.             | Number    | 20            |
 | animSpeed  | Slot animation speed (in milliseconds)             | Number    | 1000          |
 | rngFunc    | Custom RNG between 0 (inclusive) and 1 (exclusive) | Function  | Math.random() |
 
 ## Customizing symbols
 
-Creating a custom strip is fairly easy.  What is most important is that each symbol, whether an image or blank space, contains a vertical `position` that can be measured by calculating the symbol center (in pixels) from the strip top. A [Photoshop example](https://raw.githubusercontent.com/nuxy/slot-machine-gen/master/images/reel-strip.psd) has been provided with this package for reference.
+Creating a custom strip is fairly easy. What is most important is that each symbol, whether an image or blank space, contains a vertical `position` that can be measured by calculating the symbol center (in pixels) from the strip top. A [Photoshop example](https://raw.githubusercontent.com/nuxy/slot-machine-gen/master/images/reel-strip.psd) has been provided with this package for reference.
 
 ## Developers
 

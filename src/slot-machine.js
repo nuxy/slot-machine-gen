@@ -125,6 +125,7 @@ function SlotMachine(container, reels, callback, options) {
 
     for (let i = 0; i < REEL_SEGMENT_TOTAL; i++) {
       const li = document.createElement('li');
+      li.append(i.toString());
 
       const imgPosY = getImagePosY(i, startPos);
       const rotateX = (REEL_SEGMENT_TOTAL * segmentDeg) - (i * segmentDeg);

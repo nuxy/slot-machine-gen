@@ -43,30 +43,38 @@
     z-index: 1;
     --webkit-transform: translate3d(0, 0, 0);
 
-    ul.reel {
+    .reel {
       display: inline-block;
-      list-style: none;
-      margin-left: -40px;
-      transform-style: preserve-3d;
 
-      &.start {
-        animation: init 300ms ease-in reverse;
-      }
+      .strip {
+        list-style: none;
+        margin-left: -40px;
+        transform-style: preserve-3d;
 
-      &.spin {
-        animation: spin 600ms linear infinite reverse;
-      }
+        &.start {
+          animation: init 300ms ease-in reverse;
+        }
 
-      &.stop {
-        animation: init 1000ms ease-out reverse;
-      }
+        &.spin {
+          animation: spin 600ms linear infinite reverse;
+        }
 
-      li {
-        font-size: 0;
-        position: absolute;
-        text-align: center;
+        &.stop {
+          animation: init 1000ms ease-out reverse
+        }
+
+        li {
+          font-size: 0;
+          position: absolute;
+          text-align: center;
+          -webkit-backface-visibility: hidden;
+        }
       }
     }
+  }
+
+  .reel {
+    transform-style: preserve-3d;
   }
 
   @-moz-keyframes init {

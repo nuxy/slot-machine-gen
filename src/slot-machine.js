@@ -87,15 +87,13 @@ function SlotMachine(container, reels, callback, options) {
       const elm = createReelElm(reel, reel.symbols[0].position);
 
       div.appendChild(elm);
-
-      reel['element'] = elm;
     });
 
     container.appendChild(div);
   }
 
   /**
-   * Create reel elements (faux-panoramic animation).
+   * Create reel elements.
    *
    * @param {Object} config
    *   Config options.
@@ -106,6 +104,30 @@ function SlotMachine(container, reels, callback, options) {
    * @return {Element}
    */
   function createReelElm(config, startPos = 0) {
+    const div = document.createElement('div');
+    div.classList.add('reel');
+
+    const elm = createStripElm(config, config.symbols[0].position);
+
+    config['element'] = elm;
+
+    div.appendChild(elm);
+
+    return div;
+  }
+
+  /**
+   * Create strip elements (faux-panoramic animation).
+   *
+   * @param {Object} config
+   *   Config options.
+   *
+   * @param {Number} startPos
+   *   Start position.
+   *
+   * @return {Element}
+   */
+  function createStripElm(config, startPos = 0) {
     const stripHeight = getStripHeight();
     const stripWidth  = getStripWidth();
 
@@ -121,7 +143,7 @@ function SlotMachine(container, reels, callback, options) {
     ul.style.height    = stripHeight + 'px';
     ul.style.marginTop = marginTop   + 'px';
     ul.style.width     = stripWidth  + 'px';
-    ul.classList.add('reel');
+    ul.classList.add('strip');
 
     for (let i = 0; i < REEL_SEGMENT_TOTAL; i++) {
       const li = document.createElement('li');
@@ -131,7 +153,7 @@ function SlotMachine(container, reels, callback, options) {
       const rotateX = (REEL_SEGMENT_TOTAL * segmentDeg) - (i * segmentDeg);
 
       // Position image per the strip angle/container radius.
-      li.style.background = `url(${config.imageSrc}) 0px ${imgPosY}px`;
+      li.style.background = `url(${config.imageSrc}) 0 ${imgPosY}px`;
       li.style.height     = stripHeight + 'px';
       li.style.width      = stripWidth  + 'px';
       li.style.transform  = `rotateX(${rotateX}deg) translateZ(${transZ}px)`;

@@ -121,6 +121,7 @@ Customization and overriding defaults can be done using the following options:
 | reelHeight | Reel background image height (in pixels)           | Number    | 1320          |
 | reelWidth  | Reel background image width.                       | Number    | 200           |
 | reelOffset | Reel background image vertical offset.             | Number    | 20            |
+| slotYAxis  | Slot vertical axis rotation (in degrees).          | Number    | 0             |
 | animSpeed  | Slot animation speed (in milliseconds)             | Number    | 1000          |
 | rngFunc    | Custom RNG between 0 (inclusive) and 1 (exclusive) | Function  | Math.random() |
 

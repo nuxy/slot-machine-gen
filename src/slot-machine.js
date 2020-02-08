@@ -31,6 +31,7 @@ function SlotMachine(container, reels, callback, options) {
     reelHeight: 1200,
     reelWidth:  200,
     reelOffset: 20,
+    slotYAxis: 0,
     animSpeed:  1000,
     rngFunc: function() {
 
@@ -66,6 +67,7 @@ function SlotMachine(container, reels, callback, options) {
 
     for (let i = 0; i < reels.length; i++) {
       const elm = document.createElement('div');
+      elm.style.transform = `rotateY(${self.options.slotYAxis}deg)`;
       elm.classList.add('reel');
 
       div.appendChild(elm);
@@ -105,6 +107,7 @@ function SlotMachine(container, reels, callback, options) {
    */
   function createReelElm(config, startPos = 0) {
     const div = document.createElement('div');
+    div.style.transform = `rotateY(${self.options.slotYAxis}deg)`;
     div.classList.add('reel');
 
     const elm = createStripElm(config, config.symbols[0].position);

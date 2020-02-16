@@ -233,7 +233,9 @@ function SlotMachine(container, reels, callback, options) {
       }, self.options.animSpeed * getRandomInt(1, 4));
     });
 
-    callback(payLine);
+    if (callback) {
+      callback(payLine);
+    }
   }
 
   /**

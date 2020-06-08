@@ -47,7 +47,7 @@ If your using a modern framework like [Aurelia](https://aurelia.io), [Angular](h
 
 ```javascript
 import SlotMachine from 'slot-machine-gen';
-import 'slot-machine-gen/dist/css/slot-machine.css';
+import 'slot-machine-gen/dist/slot-machine.css';
 
 const slotMachine = new SlotMachine(container, reels, callback, options);
 ```

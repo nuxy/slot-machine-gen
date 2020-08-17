@@ -1,6 +1,6 @@
 {
   "name": "slot-machine-gen",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "Create an extremely biased, web-based slot machine game.",
   "main": "src/slot-machine.js",
   "scripts": {
@@ -16,6 +16,7 @@
     "url": "git+https://github.com/nuxy/slot-machine-gen.git"
   },
   "keywords": [
+    "javascript",
     "browser",
     "plugin",
     "animation",

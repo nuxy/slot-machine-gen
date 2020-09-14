@@ -118,6 +118,13 @@ const reels = [
 ]
 ```
 
+## Methods
+
+```javascript
+slotMachine.play();
+
+```
+
 ## Game options
 
 Customization and overriding defaults can be done using the following options:

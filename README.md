@@ -20,7 +20,7 @@ Checkout the [demo](https://nuxy.github.io/slot-machine-gen) for examples of use
 
 ## Installation
 
-Install the package into your project using [NPM](https://npmjs.com), or download the [sources](https://github.com/nuxy/slot-machine-gen/archive/develop.zip).
+Install the package into your project using [NPM](https://npmjs.com), or download the [sources](https://github.com/nuxy/slot-machine-gen/archive/master.zip).
 
     $ npm install slot-machine-gen
 

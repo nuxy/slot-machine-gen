@@ -1,6 +1,6 @@
 {
   "name": "slot-machine-gen",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Create an extremely biased, web-based slot machine game.",
   "main": "src/slot-machine.js",
   "scripts": {

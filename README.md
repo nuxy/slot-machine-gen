@@ -138,6 +138,18 @@ Customization and overriding defaults can be done using the following options:
 | animSpeed  | Slot animation speed (in milliseconds)             | Number    | 1000          |
 | rngFunc    | Custom RNG between 0 (inclusive) and 1 (exclusive) | Function  | Math.random() |
 
+## Callback
+
+This method returns an array of selected [reel symbols](#reels-configuration) that can be used to compute scoring, show animations, handle client interactions, etc..
+
+```javascript
+var callback = function(symbols) {
+  if (symbols[0].title === 'cherry' && symbols[1].title === 'cherry' && symbols[2].title === 'cherry') {
+    window.alert("You're a winner!");
+  }
+};
+```
+
 ## Customizing symbols
 
 Creating a custom strip is fairly easy. What is most important is that each symbol, whether an image or blank space, contains a vertical `position` that can be measured by calculating the symbol center (in pixels) from the strip top. A [Photoshop example](https://raw.githubusercontent.com/nuxy/slot-machine-gen/master/images/reel-strip.psd) has been provided with this package for reference.

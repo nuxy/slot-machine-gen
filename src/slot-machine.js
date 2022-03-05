@@ -207,11 +207,25 @@ function SlotMachine(container, reels, callback, options) {
   function spinReels() {
     const payLine = [];
 
+    if (callback) {
+
+      // Delay callback until animations have stopped.
+      payLine.push = function() {
+        Array.prototype.push.apply(this, arguments);
+
+        if (payLine.length === reels.length) {
+          const timer = window.setTimeout(() => {
+            callback(payLine);
+
+            window.clearTimeout(timer);
+          }, self.options.animSpeed);
+        }
+      };
+    }
+
     reels.forEach(reel => {
       const selected = selectRandSymbol(reel.symbols);
       const startPos = selected.position;
-
-      payLine.push(selected);
 
       // Start the rotation animation.
       const elm = reel.element;
@@ -229,13 +243,11 @@ function SlotMachine(container, reels, callback, options) {
 
         self.isAnimating = false;
 
+        payLine.push(selected);
+
         window.clearTimeout(timer);
       }, self.options.animSpeed * getRandomInt(1, 4));
     });
-
-    if (callback) {
-      callback(payLine);
-    }
   }
 
   /**

@@ -10,6 +10,7 @@ Create an extremely biased, web-based slot machine game.
 - Support for single/multi-line reels and pay-lines.
 - Pseudo-random selections by configured weight.
 - Configurable RNG (to make it less biased)
+- Configurable sound clips for reel animations.
 - Easy to set-up and customize.
 
 Checkout the [demo](https://nuxy.github.io/slot-machine-gen) for examples of use.
@@ -137,6 +138,7 @@ Customization and overriding defaults can be done using the following options:
 | slotYAxis  | Slot vertical axis rotation (in degrees).          | Number    | 0             |
 | animSpeed  | Slot animation speed (in milliseconds)             | Number    | 1000          |
 | rngFunc    | Custom RNG between 0 (inclusive) and 1 (exclusive) | Function  | Math.random() |
+| sounds     | Audio clip URLs for reels animation events         | Object    | `{ reelsBegin: null, reelsEnd: null }` |
 
 ## Callback
 

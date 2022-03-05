@@ -33,6 +33,10 @@ function SlotMachine(container, reels, callback, options) {
     reelOffset: 20,
     slotYAxis: 0,
     animSpeed:  1000,
+    sounds: {
+      reelsBegin: null,
+      reelsEnd: null
+    },
     rngFunc: function() {
 
       // The weakest link.
@@ -223,6 +227,8 @@ function SlotMachine(container, reels, callback, options) {
       };
     }
 
+    playSound(self.options.sounds.reelsBegin);
+
     reels.forEach(reel => {
       const selected = selectRandSymbol(reel.symbols);
       const startPos = selected.position;
@@ -240,6 +246,8 @@ function SlotMachine(container, reels, callback, options) {
       // Randomly stop rotation animation.
       const timer = window.setTimeout(() => {
         elm.classList.replace('spin', 'stop');
+
+        playSound(self.options.sounds.reelsEnd);
 
         self.isAnimating = false;
 
@@ -310,6 +318,21 @@ function SlotMachine(container, reels, callback, options) {
    */
   function getStripWidth() {
     return self.options.reelWidth;
+  }
+
+  /**
+   * Play the audio clip.
+   *
+   * @param {String} url
+   *  Audio file URL.
+   */
+  function playSound(url) {
+    if (url) {
+      const audio = new Audio();
+      audio.src = url;
+      audio.onerror = () => console.warn(`Failed to load audio: ${url}`);
+      audio.play();
+    }
   }
 
   /**

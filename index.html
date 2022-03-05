@@ -7,6 +7,13 @@
 
     <script type="text/javascript" src="slot-machine.min.js"></script>
     <script>
+      const options = {
+        sounds: {
+          reelsBegin: 'sounds/reelsBegin.mp3',
+          reelsEnd: 'sounds/reelsEnd.mp3',
+        }
+      };
+
       const reels = [
         {
           imageSrc: 'images/reel-strip1.png',
@@ -118,12 +125,16 @@
       window.onload = function() {
         const callback = function(payLine) {
           console.log(payLine[0].title + ' | ' + payLine[1].title + ' | ' + payLine[2].title);
+
+          if (payLine[0].title === payLine[1].title && payLine[0].title === payLine[2].title) {
+            (new Audio('sounds/winner.mp3')).play();
+          }
         };
 
         var machine = document.getElementById('slot-machine');
         var button = document.getElementById('play-button');
 
-        const slot = slotMachine(machine, reels, callback);
+        const slot = slotMachine(machine, reels, callback, options);
 
         button.addEventListener('click', () => slot.play());
       };

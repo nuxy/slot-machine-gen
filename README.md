@@ -138,7 +138,7 @@ Customization and overriding defaults can be done using the following options:
 | slotYAxis  | Slot vertical axis rotation (in degrees).          | Number    | 0             |
 | animSpeed  | Slot animation speed (in milliseconds)             | Number    | 1000          |
 | rngFunc    | Custom RNG between 0 (inclusive) and 1 (exclusive) | Function  | Math.random() |
-| sounds     | Audio clip URLs for reels animation events         | Object    | `{ reelsBegin: null, reelsEnd: null }` |
+| sounds     | Audio clip URLs for reels animation events         | Object    | `{ reelsBegin, reelsEnd }` |
 
 ## Callback
 

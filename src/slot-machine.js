@@ -219,6 +219,8 @@ function SlotMachine(container, reels, callback, options) {
 
         if (payLine.length === reels.length) {
           const timer = window.setTimeout(() => {
+            self.isAnimating = false;
+
             callback(payLine);
 
             window.clearTimeout(timer);
@@ -248,8 +250,6 @@ function SlotMachine(container, reels, callback, options) {
         elm.classList.replace('spin', 'stop');
 
         playSound(self.options.sounds.reelsEnd);
-
-        self.isAnimating = false;
 
         payLine.push(selected);
 

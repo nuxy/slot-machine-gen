@@ -9,6 +9,7 @@
     "sass": "node_modules/.bin/sass src/slot-machine.scss dist/slot-machine.css",
     "minify-css": "node_modules/.bin/node-minify --compressor clean-css --input 'dist/slot-machine.css' --output 'dist/slot-machine.min.css'",
     "minify-js": "node_modules/.bin/node-minify --compressor uglify-js --input 'dist/slot-machine.js' --output 'dist/slot-machine.min.js'",
+    "publish-npm": "npm run build && npm publish",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

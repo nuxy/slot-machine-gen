@@ -1,2 +1,5 @@
+.babelrc
+.eslintrc
 .vscode
+package.png
 node_modules

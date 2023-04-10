@@ -1,6 +1,6 @@
 .babelrc
 .eslintrc
 .vscode
-package.png
+package.*
 demo
 node_modules

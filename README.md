@@ -151,7 +151,7 @@ Customization and overriding defaults can be done using the following options:
 This method returns an array of selected [reel symbols](#reels-configuration) that can be used to compute scoring, show animations, handle client interactions, etc..
 
 ```javascript
-var callback = function(symbols) {
+const callback = function(symbols) {
   if (symbols[0].title === 'cherry' && symbols[1].title === 'cherry' && symbols[2].title === 'cherry') {
     window.alert("You're a winner!");
   }

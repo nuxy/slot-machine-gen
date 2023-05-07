@@ -4,11 +4,12 @@
   "description": "Create an extremely biased, web-based slot machine game.",
   "main": "src/slot-machine.js",
   "scripts": {
-    "build": "node_modules/.bin/babel src -s -D -d dist && npm run sass && npm run minify-css && npm run minify-js",
-    "lint": "node_modules/.bin/eslint --ignore-path .gitignore src",
-    "sass": "node_modules/.bin/sass src/slot-machine.scss dist/slot-machine.css",
-    "minify-css": "node_modules/.bin/node-minify --compressor clean-css --input 'dist/slot-machine.css' --output 'dist/slot-machine.min.css'",
-    "minify-js": "node_modules/.bin/node-minify --compressor uglify-js --input 'dist/slot-machine.js' --output 'dist/slot-machine.min.js'",
+    "build": "babel src -s -D -d dist && npm run sass && npm run minify-css && npm run minify-js",
+    "lint": "eslint --ignore-path .gitignore src",
+    "sass": "sass src/slot-machine.scss dist/slot-machine.css",
+    "minify-css": "node-minify --compressor clean-css --input 'dist/slot-machine.css' --output 'dist/slot-machine.min.css'",
+    "minify-js": "node-minify --compressor uglify-js --input 'dist/slot-machine.js' --output 'dist/slot-machine.min.js'",
+    "prepack": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

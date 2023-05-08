@@ -50,7 +50,7 @@ After you [build the distribution sources](#cli-options) the set-up is fairly si
 <link rel="stylesheet" href="path/to/slot-machine.min.css" media="all" />
 
 <script type="text/javascript">
-  var slotMachine = slotMachine(container, reels, callback, options);
+  slotMachine(container, reels, callback, options);
 </script>
 ```
 
@@ -65,7 +65,7 @@ import 'slot-machine-gen/dist/slot-machine.css';
 const slotMachine = new SlotMachine(container, reels, callback, options);
 ```
 
-## HTML markup
+### HTML markup
 
 ```html
 <div id="slot-machine" class="slot-machine"></div>

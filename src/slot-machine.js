@@ -355,6 +355,8 @@ function SlotMachine(container, reels, callback, options) {
   this.play = function() {
     dispatch(spinReels);
   };
+
+  return self;
 }
 
 /**

@@ -1,4 +1,4 @@
-# Slot Machine Generator [![npm version](https://badge.fury.io/js/slot-machine-gen.svg)](https://badge.fury.io/js/slot-machine-gen) [![](https://img.shields.io/npm/dm/slot-machine-gen)](https://www.npmjs.com/package/slot-machine-gen)
+# Slot Machine Generator [![npm version](https://badge.fury.io/js/slot-machine-gen.svg)](https://badge.fury.io/js/slot-machine-gen) [![](https://img.shields.io/npm/dm/slot-machine-gen)](https://www.npmjs.com/package/slot-machine-gen) [![Install size](https://packagephobia.com/badge?p=slot-machine-gen)](https://packagephobia.com/result?p=slot-machine-gen)
 
 Create an extremely biased, web-based slot machine game.
 

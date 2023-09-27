@@ -218,12 +218,10 @@ function SlotMachine(container, reels, callback, options) {
         Array.prototype.push.apply(this, arguments);
 
         if (payLine.length === reels.length) {
-          const timer = window.setTimeout(() => {
+          window.setTimeout(() => {
             self.isAnimating = false;
 
             callback(payLine);
-
-            window.clearTimeout(timer);
           }, self.options.animSpeed);
         }
       };
@@ -246,14 +244,12 @@ function SlotMachine(container, reels, callback, options) {
       });
 
       // Randomly stop rotation animation.
-      const timer = window.setTimeout(() => {
+      window.setTimeout(() => {
         elm.classList.replace('spin', 'stop');
 
         playSound(self.options.sounds.reelsEnd);
 
         payLine.push(selected);
-
-        window.clearTimeout(timer);
       }, self.options.animSpeed * getRandomInt(1, 4));
     });
   }

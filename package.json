@@ -18,11 +18,13 @@
   },
   "keywords": [
     "javascript",
-    "browser",
+    "html",
+    "web-browser",
     "plugin",
     "animation",
-    "slot",
-    "games"
+    "slot-machine",
+    "game",
+    "3d-cylinder"
   ],
   "bugs": {
     "url": "https://github.com/nuxy/slot-machine-gen/issues"

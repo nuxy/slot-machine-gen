@@ -6,7 +6,7 @@ Create an extremely biased, web-based slot machine game.
 
 ## Features
 
-- Faux-panoramic reel animations (without `<canvas>`)
+- Faux-panoramic reel animations (**3D cylinder**, without `<canvas>`)
 - Support for single/multi-line reels and pay-lines.
 - Pseudo-random selections by configured weight.
 - Configurable RNG (to make it less biased)

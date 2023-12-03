@@ -2,6 +2,12 @@
   margin: 10% auto 0 auto;
 }
 
+#slot-credits {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
 #play-button {
   display: block;
   margin: 0 auto;

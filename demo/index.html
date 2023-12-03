@@ -7,14 +7,14 @@
 
     <script type="text/javascript" src="../dist/slot-machine.min.js"></script>
     <script>
-      const options = {
+      var options = {
         sounds: {
           reelsBegin: 'sounds/reelsBegin.mp3',
           reelsEnd: 'sounds/reelsEnd.mp3',
         }
       };
 
-      const reels = [
+      var reels = [
         {
           imageSrc: '../images/reel-strip1.png',
           symbols: [
@@ -123,20 +123,60 @@
       ];
 
       window.onload = function() {
-        const callback = function(payLine) {
+        var credits  = document.querySelector('#slot-credits strong');
+        var winnings = parseInt(credits.innerText, 10);
+
+        var callback = function(payLine) {
+
+          // Pay lines consist of an array of symbols[], first payline being 0 → ∞
           console.log(payLine[0].title + ' | ' + payLine[1].title + ' | ' + payLine[2].title);
 
+          // If all three symbols match..
           if (payLine[0].title === payLine[1].title && payLine[0].title === payLine[2].title) {
             (new Audio('sounds/winner.mp3')).play();
+
+            // .. payout winnings
+            switch (payLine[0].title) {
+              case 'bell':
+                winnings += 50;
+                break;
+
+              case 'cherry':
+                winnings += 25;
+                break;
+
+              case 'orange':
+                winnings += 10;
+                break;
+
+              case 'plum':
+                winnings += 5;
+                break;
+            }
+
+            credits.innerText = winnings;
           }
+
+          button.disabled = false;
         };
 
-        var machine = document.getElementById('slot-machine');
+        var container = document.getElementById('slot-machine');
+
+        var slot = slotMachine(container, reels, callback, options);
+
         var button = document.getElementById('play-button');
 
-        const slot = slotMachine(machine, reels, callback, options);
+        button.addEventListener('click', () => {
+          if (button.disabled || winnings === 0) {
+            return;
+          }
 
-        button.addEventListener('click', () => slot.play());
+          credits.innerText = winnings -= 1;
+
+          slot.play();
+
+          button.disabled = true;
+        });
       };
     </script>
 
@@ -144,7 +184,10 @@
   </head>
   <body>
     <div id="slot-machine" class="slot-machine"></div>
+    <div id="slot-credits">
+      Credits <strong>5</strong>
+    </div>
 
-    <button id="play-button">Play</button>
+    <button id="play-button">Play <small>(1 credit)</small></button>
   </body>
 </html>

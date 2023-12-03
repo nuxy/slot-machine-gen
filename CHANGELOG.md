@@ -17,3 +17,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0) a
 
 - Package keywords / documented features
 - Removed commented artifacts
+
+## [1.3.2] - 2023-12-03
+
+## Added
+
+- Slot machine credit/payouts logic to demo.
+
+## Removed
+
+- Photoshop `reel-strip.psd` from NPM package.

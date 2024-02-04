@@ -59,6 +59,8 @@ function SlotMachine(container, reels, callback, options) {
    * Initialize a new game instance.
    */
   function initGame() {
+    container.setAttribute('aria-label', 'Slot machine');
+
     createDisplayElm();
     createSlotElm();
   }
@@ -72,17 +74,21 @@ function SlotMachine(container, reels, callback, options) {
 
     for (let i = 0; i < reels.length; i++) {
       const elm = document.createElement('div');
-      elm.style.transform = `rotateY(${self.options.slotYAxis}deg)`;
       elm.classList.add('reel');
+      elm.setAttribute('role', 'none');
+      elm.style.transform = `rotateY(${self.options.slotYAxis}deg)`;
 
       div.appendChild(elm);
     }
 
     if (self.options.click2Spin) {
+      const title = 'Click to spin';
 
       // Add event to display to spin reels.
       div.addEventListener('click', spinReels);
-      div.setAttribute('title', 'Click to spin');
+      div.setAttribute('aria-label', title);
+      div.setAttribute('role', 'button');
+      div.setAttribute('title', title);
       div.style.cursor = 'pointer';
     }
 
@@ -95,9 +101,11 @@ function SlotMachine(container, reels, callback, options) {
   function createSlotElm() {
     const div = document.createElement('div');
     div.classList.add('slots');
+    div.setAttribute('aria-label', 'Reels');
 
-    reels.forEach(reel => {
+    reels.forEach((reel, index) => {
       const elm = createReelElm(reel, reel.symbols[0].position);
+      elm.setAttribute('aria-label', `Reel ${index + 1}`);
 
       div.appendChild(elm);
     });

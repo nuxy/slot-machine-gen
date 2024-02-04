@@ -222,7 +222,7 @@ function SlotMachine(container, reels, callback, options) {
 
       // Delay callback until animations have stopped.
       payLine.push = function() {
-        Array.prototype.push.apply(self, arguments);
+        Array.prototype.push.apply(this, arguments);
 
         if (payLine.length === reels.length) {
           window.setTimeout(() => {

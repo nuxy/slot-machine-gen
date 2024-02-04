@@ -31,8 +31,9 @@ function SlotMachine(container, reels, callback, options) {
     reelHeight: 1200,
     reelWidth:  200,
     reelOffset: 20,
-    slotYAxis: 0,
+    slotYAxis:  0,
     animSpeed:  1000,
+    click2Spin: true,
     sounds: {
       reelsBegin: null,
       reelsEnd: null
@@ -41,7 +42,7 @@ function SlotMachine(container, reels, callback, options) {
 
       // The weakest link.
       return Math.random();
-    },
+    }
   };
 
   (function() {
@@ -77,7 +78,13 @@ function SlotMachine(container, reels, callback, options) {
       div.appendChild(elm);
     }
 
-    div.addEventListener('click', () => spinReels());
+    if (self.options.click2Spin) {
+
+      // Add event to display to spin reels.
+      div.addEventListener('click', spinReels);
+      div.setAttribute('title', 'Click to spin');
+      div.style.cursor = 'pointer';
+    }
 
     container.appendChild(div);
   }

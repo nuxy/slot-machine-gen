@@ -144,6 +144,7 @@ Customization and overriding defaults can be done using the following options:
 | reelOffset | Reel background image vertical offset.             | Number    | 20            |
 | slotYAxis  | Slot vertical axis rotation (in degrees).          | Number    | 0             |
 | animSpeed  | Slot animation speed (in milliseconds)             | Number    | 1000          |
+| click2Spin | Add event to display to spin reels                 | Boolean   | true          |
 | rngFunc    | Custom RNG between 0 (inclusive) and 1 (exclusive) | Function  | `Math.random()` |
 | sounds     | Audio clip URLs for reels animation events         | Object    | `{reelsBegin, reelsEnd}` |
 

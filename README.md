@@ -13,7 +13,7 @@ Create an extremely biased, web-based slot machine game.
 - Pseudo-random selections by configured weight.
 - Configurable RNG (to make it less biased)
 - Configurable sound clips for reel animations.
-- Easy to set-up and customize.
+- Easy to set-up and customize. **No dependencies**.
 
 Checkout the [demo](https://nuxy.github.io/slot-machine-gen) for examples of use.
 

@@ -27,3 +27,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0) a
 ## Removed
 
 - Photoshop `reel-strip.psd` from NPM package.
+
+## [1.3.3] - 2024-03-14
+
+## Added
+
+- Support WCAG 2.1 aria roles
+- Added `click2Spin` event option
+
+## Changed
+
+- Replace this referenced to self
+- Upgraded outdated NPM dependencies

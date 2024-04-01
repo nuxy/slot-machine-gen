@@ -20,22 +20,26 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0) a
 
 ## [1.3.2] - 2023-12-03
 
-## Added
+### Added
 
 - Slot machine credit/payouts logic to demo.
 
-## Removed
+### Removed
 
 - Photoshop `reel-strip.psd` from NPM package.
 
 ## [1.3.3] - 2024-03-14
 
-## Added
+### Added
 
 - Support WCAG 2.1 aria roles
 - Added `click2Spin` event option
 
-## Changed
+### Changed
 
 - Replace this referenced to self
 - Upgraded outdated NPM dependencies
+
+## [1.3.4] - 2024-04-01
+
+- Update [height -> inherit from parent](https://github.com/nuxy/slot-machine-gen/commit/8ee0ef24717d79b8db7a1277c884451cd1597199)

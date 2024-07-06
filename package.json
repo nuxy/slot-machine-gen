@@ -33,19 +33,19 @@
   "author": "Marc S. Brooks <devel@mbrooks.info> (https://mbrooks.info)",
   "license": "MIT",
   "devDependencies": {
-    "@babel/cli": "^7.23.9",
-    "@babel/core": "^7.24.0",
-    "@babel/eslint-parser": "^7.23.10",
+    "@babel/cli": "^7.24.7",
+    "@babel/core": "^7.24.7",
+    "@babel/eslint-parser": "^7.24.7",
     "@babel/plugin-proposal-class-properties": "^7.17.12",
-    "@babel/plugin-proposal-decorators": "^7.24.0",
+    "@babel/plugin-proposal-decorators": "^7.24.7",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
-    "@babel/preset-env": "^7.24.0",
-    "@babel/register": "^7.23.7",
+    "@babel/preset-env": "^7.24.7",
+    "@babel/register": "^7.24.6",
     "@node-minify/clean-css": "^8.0.6",
     "@node-minify/cli": "^8.0.6",
     "@node-minify/uglify-js": "^8.0.6",
     "eslint": "^8.57.0",
-    "sass": "^1.72.0"
+    "sass": "^1.77.6"
   },
   "overrides": {
     "braces": "3.0.0",

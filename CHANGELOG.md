@@ -43,3 +43,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0) a
 ## [1.3.4] - 2024-04-01
 
 - Update [height -> inherit from parent](https://github.com/nuxy/slot-machine-gen/commit/8ee0ef24717d79b8db7a1277c884451cd1597199)
+
+## [1.3.5] - 2024-07-13
+
+- NPM security updates ([braces](https://github.com/advisories/GHSA-grv7-fg5c-xmjg) override)

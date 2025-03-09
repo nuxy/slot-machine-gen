@@ -47,3 +47,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0) a
 ## [1.3.5] - 2024-07-13
 
 - NPM security updates ([braces](https://github.com/advisories/GHSA-grv7-fg5c-xmjg) override)
+
+## [1.3.6] - 2025-03-08
+
+- NPM security updates ([cross-spawn](https://github.com/advisories/GHSA-3xgq-45jj-v275)/[micromatch](https://github.com/advisories/GHSA-952p-6rrq-rcjv))
+- Updated demo - Added device only responsice overrides

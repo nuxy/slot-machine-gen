@@ -9,13 +9,27 @@ body {
 }
 
 #slot-credits {
-  position: absolute;
-  right: 20px;
-  top: 20px;
+  text-align: center;
+  margin: 20px;
 }
 
 #play-button {
   display: block;
   margin: 0 auto;
   width: 100px;
+}
+
+/**
+ * Responsive overrides.
+ */
+@media only screen and (min-device-width: 0px) and (max-device-width: 450px) {
+  html {
+    min-width: 400px;
+  }
+
+  #slot-machine {
+    margin: 0 auto -150px auto;
+    transform: scale(65%);
+    transform-origin: left top;
+  }
 }

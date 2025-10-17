@@ -52,3 +52,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0) a
 
 - NPM security updates ([cross-spawn](https://github.com/advisories/GHSA-3xgq-45jj-v275)/[micromatch](https://github.com/advisories/GHSA-952p-6rrq-rcjv))
 - Updated demo - Added device only responsice overrides
+
+## 1.3.7 - 2025-10-17
+
+- Upgraded outdated NPM dependencies / NPM security updates
+- Replaced ESLint deprecated release
+- Renamed Babel config to recommended

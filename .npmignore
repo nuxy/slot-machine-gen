@@ -1,6 +1,6 @@
 .babelrc
-.eslintrc
 .vscode
+eslint.config.js
 ISSUE_TEMPLATE.md
 package.*
 demo

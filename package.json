@@ -5,7 +5,7 @@
   "main": "src/slot-machine.js",
   "scripts": {
     "build": "babel src -s -D -d dist && npm run sass && npm run minify-css && npm run minify-js",
-    "lint": "eslint --ignore-path .gitignore src",
+    "lint": "eslint src",
     "sass": "sass src/slot-machine.scss dist/slot-machine.css",
     "minify-css": "node-minify --compressor clean-css --input 'dist/slot-machine.css' --output 'dist/slot-machine.min.css'",
     "minify-js": "node-minify --compressor uglify-js --input 'dist/slot-machine.js' --output 'dist/slot-machine.min.js'",
@@ -44,7 +44,7 @@
     "@node-minify/clean-css": "^8.0.6",
     "@node-minify/cli": "^8.0.6",
     "@node-minify/uglify-js": "^8.0.6",
-    "eslint": "^8.57.1",
+    "eslint": "^9.37.0",
     "sass": "^1.93.2"
   },
   "overrides": {

@@ -1,5 +1,5 @@
-.babelrc
 .vscode
+babel.config.json
 eslint.config.js
 ISSUE_TEMPLATE.md
 package.*

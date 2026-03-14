@@ -58,3 +58,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0) a
 - Upgraded outdated NPM dependencies / NPM security updates
 - Replaced ESLint deprecated release
 - Renamed Babel config to recommended
+
+## 1.3.8 - 2026-03-13
+
+- NPM security update ([minimatch](https://github.com/advisories/GHSA-7r86-cg39-jmmj))

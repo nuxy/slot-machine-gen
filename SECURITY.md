@@ -5,8 +5,14 @@
 | Version | Supported          |
 | ------- | ------------------ |
 | 1.1.x   | :x:                |
-| 1.2.x   | :white_check_mark: |
+| 1.2.x   | :x:                |
 | 1.3.x   | :white_check_mark: |
+
+## Frequency of updates
+
+[Dependabot](https://docs.github.com/en/code-security/tutorials/secure-your-dependencies/dependabot-quickstart-guide#about-dependabot) may report security issues related to this project but **100% of the time it's related to a third-party dependency** that is only used when generating the demo (the library iself has **no dependencies**).
+
+That being said, the urgency of resolving these flagged issues is minimal, at best, considering new issues seems to be reported on a weekly basis.
 
 ## Reporting an issue
 

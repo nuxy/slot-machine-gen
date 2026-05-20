@@ -29,7 +29,7 @@ Install the package into your project using [NPM](https://npmjs.com), or downloa
 
 ### Alternative
 
-To add to an existing [React](https://reactjs.org) or [Vue](https://vuejs.org) project you can install this package using [YARN](https://yarnpkg.com).
+To add to an existing [React](https://reactjs.org), [Vue](https://vuejs.org) or [Aurelia](https://aurelia.io) project you can install this package using [YARN](https://yarnpkg.com).
 
 #### React
 
@@ -38,6 +38,10 @@ To add to an existing [React](https://reactjs.org) or [Vue](https://vuejs.org) p
 #### Vue
 
     $ yarn add vue-slot-machine-gen
+
+#### Aurelia
+
+    $ yarn add aurelia-slot-machine-gen
 
 ## Usage
 

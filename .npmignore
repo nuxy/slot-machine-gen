@@ -1,8 +1,7 @@
 .vscode
 babel.config.json
+demo
 eslint.config.js
+images
 ISSUE_TEMPLATE.md
 package.*
-demo
-images/*.psd
-node_modules

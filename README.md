@@ -124,7 +124,7 @@ const reels = [
         position: 1100,
         weight: 5
       }
-    }
+    ]
   },
 
   // add more reels ...

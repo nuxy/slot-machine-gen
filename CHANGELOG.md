@@ -51,7 +51,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0) a
 ## [1.3.6] - 2025-03-08
 
 - NPM security updates ([cross-spawn](https://github.com/advisories/GHSA-3xgq-45jj-v275)/[micromatch](https://github.com/advisories/GHSA-952p-6rrq-rcjv))
-- Updated demo - Added device only responsice overrides
+- Updated demo - Added device only responsive overrides
 
 ## 1.3.7 - 2025-10-17
 
@@ -62,3 +62,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0) a
 ## 1.3.8 - 2026-03-13
 
 - NPM security update ([minimatch](https://github.com/advisories/GHSA-7r86-cg39-jmmj))
+
+## 1.3.9 - 2026-08-30
+
+- Upgraded outdated NPM dependencies / NPM security updates
+- Removed deprecated (unused) Babel plugins

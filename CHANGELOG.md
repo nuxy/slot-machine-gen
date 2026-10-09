@@ -53,3 +53,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0) a
 
 - Upgraded outdated NPM dependencies / NPM security updates
 - Removed deprecated (unused) Babel plugins
+
+## 1.3.10 - 2026-10-09
+
+- Documentation and publishing changes

@@ -6,37 +6,23 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0) a
 
 ## [1.3.0] - 2023-10-12
 
-### Changed
-
 - Refactor timers, removed clearTimeout
 - Package dependency updates
 
 ## [1.3.1] - 2023-11-19
-
-### Updated
 
 - Package keywords / documented features
 - Removed commented artifacts
 
 ## [1.3.2] - 2023-12-03
 
-### Added
-
-- Slot machine credit/payouts logic to demo.
-
-### Removed
-
-- Photoshop `reel-strip.psd` from NPM package.
+- Added Slot machine credit/payouts logic to demo.
+- Removed Photoshop `reel-strip.psd` from NPM package.
 
 ## [1.3.3] - 2024-03-14
 
-### Added
-
 - Support WCAG 2.1 aria roles
 - Added `click2Spin` event option
-
-### Changed
-
 - Replace this referenced to self
 - Upgraded outdated NPM dependencies
 
